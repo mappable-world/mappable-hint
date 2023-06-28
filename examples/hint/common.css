@@ -1,0 +1,12 @@
+.my-hint {
+    position: absolute;
+    padding: 4px;
+    background: white;
+    border: 1px solid black;
+    white-space: nowrap;
+    opacity: 0.7;
+
+    font-family: sans-serif;
+
+    transform: translate(8px, -50%);
+}

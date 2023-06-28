@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+        <script src="../3.0.js"></script>
+        <script src="./common.js"></script>
+
+        <script>
+            window.map = null;
+
+            main();
+            async function main() {
+                await mappable.ready;
+                const {
+                    MMap,
+                    MMapDefaultSchemeLayer,
+                    MMapDefaultFeaturesLayer,
+                    MMapControls,
+                    MMapCollection,
+                    MMapMarker,
+                    MMapFeature,
+
+                    MMapEntity
+                } = mappable;
+
+                const {MMapZoomControl} = await mappable.import('@mappable-world/mappable-controls@0.0.1');
+                const {MMapHint, MMapHintContext} = await mappable.import('@mappable-world/mappable-hint@0.0.1');
+
+                map = new MMap(document.getElementById('app'), {location: LOCATION});
+
+                map.addChild(new MMapDefaultSchemeLayer());
+                map.addChild((defaultFeatures = new MMapDefaultFeaturesLayer()));
+
+                map.addChild(new MMapControls({position: 'right'}).addChild(new MMapZoomControl({})));
+
+                const bounds = map.bounds;
+
+                const markers = new MMapCollection({});
+                POINTS.forEach(({coordinates, hint, color}) => {
+                    const marker = new MMapMarker({coordinates, properties: {hint}});
+                    marker.element.style.transform = 'translate(-15px, -33px)';
+                    marker.element.style.position = 'absolute';
+                    marker.element.innerHTML = markerSvg(color);
+
+                    markers.addChild(marker);
+                });
+
+                const lines = new MMapCollection({});
+                LINES.forEach(({geometry, hint, style}) => {
+                    lines.addChild(new MMapFeature({geometry, style, properties: {hint}}));
+                });
+
+                const triangles = new MMapCollection({});
+                TRIANGLES.forEach(({geometry, hint, style}) => {
+                    triangles.addChild(new MMapFeature({geometry, style, properties: {hint}}));
+                });
+
+                map.addChild(markers);
+                map.addChild(lines);
+                map.addChild(triangles);
+
+                map.addChild(
+                    (hint = new MMapHint({
+                        layers: [defaultFeatures.layer],
+                        hint: (object) => object?.properties?.hint
+                    }))
+                );
+
+                hint.addChild(
+                    new (class MyHint extends MMapEntity {
+                        _onAttach() {
+                            this._element = document.createElement('div');
+                            this._element.className = 'my-hint';
+
+                            this._detachDom = mappable.useDomContext(this, this._element);
+                            this._watchContext(
+                                MMapHintContext,
+                                () => {
+                                    this._element.textContent = this._consumeContext(MMapHintContext)?.hint;
+                                },
+                                {immediate: true}
+                            );
+                        }
+                        _onDetach() {
+                            this._detachDom();
+                        }
+                    })()
+                );
+            }
+        </script>
+
+        <link rel="stylesheet" href="../common.css" />
+        <link rel="stylesheet" href="./common.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+</html>

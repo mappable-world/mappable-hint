@@ -1,0 +1,12 @@
+a.yaml
+node_modules
+.npmignore
+.npmrc
+.nvmrc
+.eslintrc.js
+.prettierrc.json
+jest.setup.js
+jest.config.json
+MMapHint
+*.ts
+webpack.config.js

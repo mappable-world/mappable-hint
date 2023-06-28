@@ -1,0 +1,22 @@
+{
+    "verbose": true,
+    "preset": "ts-jest",
+    "automock": false,
+    "moduleNameMapper": {
+        "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupFiles": ["<rootDir>/jest.setup.js"],
+    "transform": {
+        "^.+\\.tsx?$": [
+            "ts-jest",
+            {
+                "tsconfig": {
+                    "target": "ES2019",
+                    "module": "es6",
+                    "esModuleInterop": true
+                },
+                "isolatedModules": true
+            }
+        ]
+    }
+}
