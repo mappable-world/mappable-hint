@@ -1,10 +1,10 @@
 import type {LngLatBounds, LngLat, PolygonGeometry} from '@mappable-world/mappable-types/common/types';
 
-import {MMapHint} from './index';
+import {MMapHint} from '../src';
 
 describe('MMapHint', () => {
     const BOUNDS: LngLatBounds = [
-        [54.58311, 25.99850],
+        [54.58311, 25.9985],
         [56.30248, 24.47889]
     ];
 
