@@ -5,7 +5,7 @@ node_modules
 .nvmrc
 .eslintrc.js
 .prettierrc.json
-jest.setup.js
+jest.setup.ts
 jest.config.json
 MMapHint
 *.ts
