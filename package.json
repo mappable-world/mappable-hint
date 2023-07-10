@@ -2,11 +2,13 @@
   "version": "0.0.1",
   "name": "@mappable-world/mappable-hint",
   "devDependencies": {
-    "@mappable-world/mappable-types": "0.0.2",
+    "@mappable-world/mappable-types": "^0.0.3",
     "@types/jest": "29.5.2",
     "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
+    "ajv": "7.2.4",
     "cross-fetch": "4.0.0",
     "css-loader": "6.8.1",
     "eslint": "8.44.0",
@@ -37,6 +39,6 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "start": "webpack serve"
   }
 }

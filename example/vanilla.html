@@ -3,9 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-        <script src="../3.0.js"></script>
-        <script src="./common.js"></script>
-
+        <script>
+            const apikey = new URLSearchParams(location.search).get('apikey')
+            if (!apikey) {
+                throw new Error('Define url query apikey');
+            }
+            document.write(`<script src='https://js.api.mappable.world/3.0/?apikey=${apikey}&lang=en_US'><`+`/script>`);
+        </script>
+        <script src="common.js"></script>
+        <title>Test</title>
         <script>
             window.map = null;
 
@@ -90,8 +96,7 @@
             }
         </script>
 
-        <link rel="stylesheet" href="../common.css" />
-        <link rel="stylesheet" href="./common.css" />
+        <link rel="stylesheet" href="common.css" />
     </head>
     <body>
         <div id="app"></div>

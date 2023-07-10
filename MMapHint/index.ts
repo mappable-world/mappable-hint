@@ -44,30 +44,19 @@ const MMapHintContext = new mappable.MMapContext('MMapHint');
  * ```
  */
 class MMapHint extends mappable.MMapGroupEntity<MMapHintProps> {
-    /** @internal */
-    // static [reactify.overrideKey] = MMapHintReactifyOverride;
-    static overrideWrapper = {
-        reactify: () => {
-            // @ts-ignore
-            const MMapHintReactifyOverride: CustomReactify<MMapHint, TReact.FC<MMapHintProps>> = (
-                MMapHint,
-                {reactify, React}
-            ) => {
-                const Component = reactify.entity(MMapHint);
-                // @ts-ignore
-                const {MMapReactContainer} = reactify;
+    static [mappable.overrideKeyReactify]: CustomReactify<MMapHint, TReact.FC<TReact.PropsWithChildren<MMapHintProps>>> = (
+        MMapHint,
+        {reactify, React}
+    ) => {
+        const Component = reactify.entity(MMapHint);
+        const {MMapReactContainer: MMapReactContainerR } = reactify.module(mappable);
 
-                const MMapReactContainerR = reactify.entity(MMapReactContainer);
-                // @ts-ignore
-                return ({children, ...props}) =>
-                    React.createElement(
-                        Component,
-                        props,
-                        // @ts-ignore
-                        React.createElement(MMapReactContainerR, {context: MMapHintContext}, children)
-                    );
-            };
-        }
+        return ({children, ...props}) =>
+            React.createElement(
+                Component,
+                props,
+                React.createElement(MMapReactContainerR, {context: MMapHintContext}, children)
+            );
     };
 
     private _destroyDomContext!: Function;

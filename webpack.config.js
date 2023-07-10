@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {name} = require('./package.json');
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -19,14 +18,12 @@ const config = {
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
+        static: {
+            directory: path.join(__dirname, './example'),
+        },
         open: true,
         host: 'localhost'
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.html'
-        })
-    ],
     module: {
         rules: [
             {
