@@ -49,10 +49,8 @@ class MMapHint extends mappable.MMapGroupEntity<MMapHintProps> {
         {reactify, React}
     ) => {
         const Component = reactify.entity(MMapHint);
-        // @ts-ignore
         const {MMapReactContainer: MMapReactContainerR } = reactify.module(mappable);
 
-        // @ts-ignore
         return ({children, ...props}) =>
             React.createElement(
                 Component,
