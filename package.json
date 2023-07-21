@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2-beta.2",
+  "version": "0.0.2-beta.3",
   "name": "@mappable-world/mappable-hint",
   "description": "Hints for Mappable Maps JS API 3.0",
   "scripts": {
