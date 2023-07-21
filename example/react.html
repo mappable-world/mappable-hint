@@ -6,13 +6,7 @@
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-        <script>
-            const apikey = new URLSearchParams(location.search).get('apikey')
-            if (!apikey) {
-                throw new Error('Define url query apikey');
-            }
-            document.write(`<script src='https://js.api.mappable.world/3.0/?apikey=${apikey}&lang=en_US'><`+`/script>`);
-        </script>
+        <script src='https://js.api.mappable.world/3.0/?apikey=%APIKEY%&lang=en_US'></script>
         <script src="common.js"></script>
 
         <script type="text/babel">

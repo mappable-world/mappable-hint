@@ -1,1 +1,1 @@
-export {MMapHint, MMapHintContext} from '../MMapHint';
+export {MMapHint, MMapHintContext} from './MMapHint';

@@ -1,8 +1,22 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "name": "@mappable-world/mappable-hint",
+  "description": "Hints for Mappable Maps JS API 3.0",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./",
+    "build": "npm run build:prod && npm run build:esm",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "build:esm": "rm -rf ./dist/esm && tsc --project tsconfig.build.json --target es2018 --module es6 --outDir dist/esm",
+    "watch": "webpack --watch",
+    "start": "webpack serve",
+    "bump": "npm version prerelease --preid=beta --no-git-tag-version && npm run bump:git",
+    "bump:git": "git add --all && git commit -m \"New version $npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main"
+  },
   "devDependencies": {
-    "@mappable-world/mappable-test-utils": "github:mappable-world/mappable-test-utils#main",
+    "html-webpack-plugin": "^5.5.3",
+    "@mappable-world/mappable-cli": "^0.0.1-beta.31",
     "@mappable-world/mappable-types": "^0.0.4",
     "@types/got": "9.6.12",
     "@types/jest": "29.5.3",
@@ -31,15 +45,5 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1"
   },
-  "description": "Hints for Mappable Maps JS API 3.0",
-  "scripts": {
-    "test": "jest",
-    "prepublic": "mkdir ./public && co -r ./dist/ ./public/ && cp README.md ./public && cp packacge.json ./public",
-    "lint": "eslint ./",
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
-    "start": "webpack serve"
-  }
+  "license": "Apache-2"
 }
