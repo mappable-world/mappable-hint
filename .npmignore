@@ -8,6 +8,5 @@ node_modules
 tsconfig.json
 jest.setup.ts
 jest.config.json
-MMapHint
-*.ts
+src
 webpack.config.js
