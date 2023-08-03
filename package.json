@@ -14,6 +14,14 @@
     "bump": "npm version prerelease --preid=beta --no-git-tag-version && npm run bump:git",
     "bump:git": "git add --all && git commit -m \"New version $npm_package_version\" && git tag $npm_package_version && git push --tags origin HEAD:main"
   },
+  "keywords": [
+    "mappable",
+    "hint",
+    "map js api",
+    "mappable js api",
+    "mappable package",
+    "mappable-hint"
+  ],
   "devDependencies": {
     "html-webpack-plugin": "^5.5.3",
     "@mappable-world/mappable-cli": "^0.0.1-beta.31",
