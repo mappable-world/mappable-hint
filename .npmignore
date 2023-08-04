@@ -7,7 +7,7 @@
 .npmrc
 .nvmrc
 .prettierrc.json
-jest.config.json
+jest.config.js
 jest.setup.ts
 node_modules
 src
