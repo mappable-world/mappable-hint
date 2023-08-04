@@ -1,7 +1,11 @@
 {
-  "version": "0.0.2-beta.15",
+  "version": "0.0.2-beta.16",
   "name": "@mappable-world/mappable-hint",
   "description": "Hints for Mappable Maps JS API 3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mappable-world/mappable-hint.git"
+  },
   "scripts": {
     "test": "jest",
     "lint": "eslint ./",
