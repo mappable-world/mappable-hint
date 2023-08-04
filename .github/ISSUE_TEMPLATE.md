@@ -1,7 +1,7 @@
 <!-- BUGS: Please use this template -->
 <!-- QUESTIONS: This is not a general support forum! Ask Qs at http://stackoverflow.com/questions/tagged/mappable-world -->
 
-**mappable-alyyabo Version:**  xxxxx
+**mappable-hint Version:**  xxxxx
 
 **Browser:**  <!-- Chrome/IE/Safary/FF -->
 **OS:**  <!-- Windows/Mac/Linux -->
