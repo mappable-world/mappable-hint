@@ -251,7 +251,6 @@ const clusterer = new MMapClusterer({
 });
 
 map.addChild(clusterer);
-}
 ```
 
 ### Example 2. Using a Clusterer with React JS
@@ -262,16 +261,18 @@ We declare a variable for the map, load the mappable library, extract the necess
 window.map = null;
 main();
 async function main() {
-    await mappable.ready;
-    const mappableReact = await mappable.import('@mappable-world/mappable-reactify');
-    const reactify = mappableReact.reactify.bindTo(React, ReactDOM);
-    const {
-        MMap,
-        MMapDefaultSchemeLayer,
-        MMapLayer,
-        MMapFeatureDataSource,
-        MMapMarker
-    } = reactify.module(mappable);
+  await mappable.ready;
+  const mappableReact = await mappable.import('@mappable-world/mappable-reactify');
+  const reactify = mappableReact.reactify.bindTo(React, ReactDOM);
+  const {
+    MMap,
+    MMapDefaultSchemeLayer,
+    MMapLayer,
+    MMapFeatureDataSource,
+    MMapMarker
+  } = reactify.module(mappable);
+  // ...
+}
 ```
 
 We connect the package with the clusterer, extract the classes for creating clusterer objects and the clustering method.
@@ -352,21 +353,22 @@ We return JSX, in which we render the components of the map, the default layer, 
 In the clusterer props, we pass the previously declared functions for rendering markers and clusters, the clustering method, and an array of features.
 
 ```jsx
-return <>
+function App() {
+  // ...
+  return <>
     <MMap location={LOCATION} ref={x => map = x}>
-        <MMapDefaultSchemeLayer />
-        <MMapFeatureDataSource id="my-source"/>
-        <MMapLayer source="my-source" type="markers" zIndex={1800}/>
-        <MMapClusterer
-            marker={marker}
-            cluster={cluster}
-            method={gridSizedMethod}
-            features={points}
-        />
+      <MMapDefaultSchemeLayer />
+      <MMapFeatureDataSource id="my-source" />
+      <MMapLayer source="my-source" type="markers" zIndex={1800} />
+      <MMapClusterer
+        marker={marker}
+        cluster={cluster}
+        method={gridSizedMethod}
+        features={points}
+      />
     </MMap>
-</>;
-
+  </>;
+}
 // ...
 ReactDOM.render(<App />, document.getElementById("app"));
-}
 ```
