@@ -3,7 +3,7 @@
 ---
 
 [![Build Status](https://github.com/mappable-world/mappable-hint/workflows/Run%20tests/badge.svg)](https://github.com/mappable-world/mappable-hint/actions/workflows/tests.yml)
-[![npm version](https://badge.fury.io/js/@mappable-world%2Fmappable-hint.svg)](https://badge.fury.io/js/@mappable-world%2Fmappable-hint)
+[![npm version](https://badge.fury.io/js/@mappable-world%2Fmappable-hint.svg)](https://www.npmjs.com/package/@mappable-world/mappable-hint)
 [![npm](https://img.shields.io/npm/dm/@mappable-world/mappable-hint.svg)](https://www.npmjs.com/package/@mappable-world/mappable-hint)
 
 The package adds the functionality of hanging hints on map elements
