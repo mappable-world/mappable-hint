@@ -8,6 +8,7 @@
 
 The package adds the functionality of hanging hints on map elements
 
+- [GitHub](https://github.com/mappable-world/mappable-hint)
 - [Demo](https://codesandbox.io/embed/wgqnh8?fontsize=14&hidenavigation=1&theme=dark&initialpath=react.html&module=react.html&moduleview=1)
 
 ## How use
