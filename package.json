@@ -12,6 +12,7 @@
     "lint": "eslint ./",
     "build": "npm run build:prod && npm run build:esm",
     "build:dev": "webpack --mode=development",
+    "examples": "mappable-cli example --input=example --output=dist/example",
     "build:prod": "webpack --mode=production --node-env=production",
     "build:esm": "rm -rf ./dist/esm && tsc --project tsconfig.build.json --target es2018 --module es6 --outDir dist/esm",
     "watch": "webpack --watch",
@@ -29,7 +30,7 @@
   ],
   "devDependencies": {
     "html-webpack-plugin": "^5.5.3",
-    "@mappable-world/mappable-cli": "^0.0.3",
+    "@mappable-world/mappable-cli": "^0.0.16",
     "@mappable-world/mappable-types": "^0.0.4",
     "@types/got": "9.6.12",
     "@types/jest": "29.5.3",
