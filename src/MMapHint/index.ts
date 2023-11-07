@@ -59,7 +59,6 @@ class MMapHint extends mappable.MMapGroupEntity<MMapHintProps> {
             );
     };
 
-    private _destroyDomContext!: Function;
     private _detachDom!: DomDetach;
     private _element!: HTMLElement | null;
     private _hintElement!: HTMLElement;
@@ -121,7 +120,6 @@ class MMapHint extends mappable.MMapGroupEntity<MMapHintProps> {
     }
 
     protected _onDetach(): void {
-        this._destroyDomContext();
         this._detachDom();
         this._element = null;
     }
