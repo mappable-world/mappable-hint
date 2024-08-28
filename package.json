@@ -2,6 +2,8 @@
   "version": "0.0.7",
   "name": "@mappable-world/mappable-hint",
   "description": "Hints for Mappable Maps JS API 3.0",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/esm/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mappable-world/mappable-hint.git"
